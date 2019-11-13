@@ -22,3 +22,28 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+today = datetime.today()
+
+month = input("Enter month: ")
+year = input("Enter year: ")
+
+ 
+
+
+def cal(month,year):
+    if len(month) == 0 and len(year) == 0:
+      print(today.month)
+      print(today.year)
+      print(calendar.month(today.year, today.month))
+      return
+    elif int(month) >= 0 and int(month) <= 12 and len(year) == 0:
+      print(calendar.month(today.year, int(month)))
+      return
+    elif int(month) >= 0 and int(month) <= 12 and int(year) >= 0:
+      print(calendar.month(int(year), int(month)))
+      return
+    else:
+      print("You used the wrong format. please Start the program and try again")
+
+    
+cal(month, year)
