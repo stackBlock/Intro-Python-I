@@ -22,3 +22,31 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+today = datetime.today()
+
+month = input("Enter month: ")
+year = input("Enter year: ")
+try:
+    val = int(month) and int(year)
+except ValueError:
+    if month or year:
+        print("One of your input string is not an integer")
+        print("Month and year must both be integers for this simple program to work \n Please try again!!")
+        sys.exit(1)
+
+
+def cal(month, year):
+    if len(month) == 0 and len(year) == 0:
+        print(calendar.month(today.year, today.month))
+        return
+    elif int(month) >= 0 and int(month) <= 12 and len(year) == 0:
+        print(calendar.month(today.year, int(month)))
+        return
+    elif int(month) >= 0 and int(month) <= 12 and int(year) >= 0:
+        print(calendar.month(int(year), int(month)))
+        return
+    else:
+        print("Come on, A month between 1 and 12 please! please Start the program and try again")
+
+
+cal(month, year)
